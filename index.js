@@ -610,17 +610,6 @@ function sanitizeHtml(html, options, _recursing) {
         s = s.replace(/"/g, '&quot;');
       }
     }
-    // TODO: this is inadequate because it will pass `&0;`. This approach
-    // will not work, each & must be considered with regard to whether it
-    // is followed by a 100% syntactically valid entity or not, and escaped
-    // if it is not. If this bothers you, don't set parser.decodeEntities
-    // to false. (The default is true.)
-    s = s.replace(/&(?![a-zA-Z0-9#]{1,20};)/g, '&amp;') // Match ampersands not part of existing HTML entity
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;');
-    if (quote) {
-      s = s.replace(/"/g, '&quot;');
-    }
     return s;
   }
 
