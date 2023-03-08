@@ -791,7 +791,7 @@ function sanitizeHtml(html, options, _recursing) {
 // programmatically if you wish
 
 const htmlParserDefaults = {
-  decodeEntities: true
+  decodeEntities: false
 };
 sanitizeHtml.defaults = {
   allowedTags: [
